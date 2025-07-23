@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caring Hands Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Background video section */
+    .video-bg {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      overflow: hidden;
+    }
+
+    .video-bg video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+     
+    .overlay-text {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      top: 40%;
+      font-size: 2rem;
+    }
+
+    .logo-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 350px;
+  width: auto;
+  z-index: 10;
+}
+
+    /* Navbar */
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 1000;
+      font-size:xx-large
+    }
+     
+    .dropdown-menu .dropdown-item {
+      font-size: 2.1rem;     /* Increase font size */
+      font-weight: 900;      /* Make text bold */
+   }
+   
+  /* Optional divider line between items */
+    .dropdown-menu .dropdown-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Add line divider under each dropdown item except last */
+  .dropdown-menu .dropdown-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle line */
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  }
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 24px;
+      text-align: center;
+      line-height: 55px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+     
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70%;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lightbox h3, .lightbox p {
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+      max-width: 800px;
+    }
+    
+    
+    /* Footer */
+    footer {
+      background: black;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+    }
+
+    /* Newsletter Modal */
+    .modal-content {
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .overlay-text {
+        font-size: 1.5rem;
+        top: 35%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Caring Hands Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+
+        <!-- Services Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Services</a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="#real-estate">Real Estate</a></li>
+            <li><a class="dropdown-item" href="#laundry">Laundry</a></li>
+            <li><a class="dropdown-item" href="#laundry">Laundry</a></li>
+            <li><a class="dropdown-item" href="#laundry">Laundry</a></li>
+            <li><a class="dropdown-item" href="#laundry">Laundry</a></li>
+            <li><a class="dropdown-item" href="#laundry">Laundry</a></li>
+            <li><a class="dropdown-item" href="#laundry">Laundry</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Blog</a>
+          <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+            <li><a class="dropdown-item" href="#latest-posts">Latest Posts</a></li>
+            <li><a class="dropdown-item" href="#industry-news">Industry News</a></li>
+            <li><a class="dropdown-item" ></a>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay-text">
+      <h1>Welcome to Caring Hands Home</h1>
+      <p>Looking for real estate, and laundry visit us</p>
+      <button class="btn btn-light mt-3" data-bs-toggle="modal" data-bs-target="#newsletterModal">Subscribe</button>
+    </div>
+    <img src="images/logo1.png" alt="Logo" class="logo-overlay">
+  </div>
+    
+  <h1>Featured Real Estate Gallery</h1>
+     <div class="gallery">
+    <img 
+      src="images/home.png" 
+      alt="Modern Villa"
+      data-title="Modern Villa"
+      data-description="This elegant modern villa features state-of-the-art architecture and luxurious interiors."
+    >
+
+    <img 
+  src="images/home2.png" 
+  alt="Interior Decor"
+  data-title="Interior Decor"
+  data-description="Stylish and spacious modern interior with ambient lighting and elegant furniture."
+>
+
+
+    <img 
+      src="images/home3.png" 
+      alt="Glass Home"
+      data-title="Glass Home"
+      data-description="Futuristic glass house design offering scenic views and eco-conscious structure."
+    >
+
+    <img 
+      src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" 
+      alt="City Apartment"
+      data-title="City Apartment"
+      data-description="Modern city apartment located in downtown, close to business hubs and urban lifestyle."
+    >
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="closeBtn">&times;</span>
+    <img id="lightboxImg" src="" alt="">
+    <h3 id="lightboxTitle"></h3>
+    <p id="lightboxCaption"></p>
+  </div>
+      
+       <!-- Clickable Image Cards -->
+  <section class="container my-5">
+    <h1 class="section-title">Explore Our Interior Decoration</h1>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <div class="card click-card" onclick="location.href='#about'">
+          <img src="images/interior3.png" class="card-img-top" alt="Real Estate">
+          <div class="card-body">
+            <h5 class="card-title">Dubai launge</h5>
+            <p class="card-text">Discover top property listings in your area.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card click-card" onclick="location.href='#services'">
+          <img src="images/interior2.png" class="card-img-top" alt="Laundry">
+          <div class="card-body">
+            <h5 class="card-title">Laundry Service</h5>
+            <p class="card-text">Pickup and delivery laundry service near you.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="col-12 col-md-4">
+        <div class="card click-card" onclick="location.href='#services'">
+          <img src="images/interior1.png" class="card-img-top" alt="Laundry">
+          <div class="card-body">
+            <h5 class="card-title">Laundry Service</h5>
+            <p class="card-text">Pickup and delivery laundry service near you.</p>
+          </div>
+        </div>
+      </div>
+      
+  <script>
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const closeBtn = document.getElementById("closeBtn");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxTitle.innerText = img.getAttribute("data-title");
+        lightboxCaption.innerText = img.getAttribute("data-description");
+        lightbox.style.display = "flex";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+  </script>
+
+  <!-- About Section -->
+  <section id="about" class="container py-5">
+    <h2>Place Holder</h2>
+    <p>We deliver top-quality products and services tailored to meet customer needs.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-light py-5">
+    <div class="container">
+      <h2>Place Holder</h2>
+      <ul>
+        <li>Real Estate</li>
+        <li>Laundry Pickup</li>
+        <li>Consultancy</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  
+  <img src="images/laundry1b.png" />
+
+  <!-- WhatsApp Chat Button -->
+  <a href="https://wa.me/2348012345678" target="_blank" class="whatsapp-btn">
+    <span>💬</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <p>&copy; 2025 Caring Hands Home. All rights reserved.</p>
+    <div>
+      <a href="https://facebook.com" target="_blank">Facebook</a> |
+      <a href="https://twitter.com" target="_blank">Twitter</a> |
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- Newsletter Modal -->
+  <div class="modal fade" id="newsletterModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Subscribe to Newsletter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Enter your email to stay updated!</p>
+          <input type="email" class="form-control" placeholder="Your Email" required />
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     
+     
+    
+</body>
+</html>
